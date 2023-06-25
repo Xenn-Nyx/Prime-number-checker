@@ -7,7 +7,14 @@
     Outputs: console statements
 
     Features a silent mode for suppressed console outputs until the end
+
+    Future implementations:
+    -> Implement multithreading
+    -> Output to a file
+    -> Option for a graph to be displayed
+    -> Execution time is displayed
 '''
+
 ##Import needed modules
 from prime_check import prime_check as prime
 
@@ -37,11 +44,18 @@ while True:
 #Print a message displaying that the program is now working
 print(f"Checking for primes between {startVal} and {endVal}. Please be patient...")
 
+#Define some values
 incrementor=startVal
 primeArray=[]
+
+#Loop through each value until the end value is reached
+#if the number is found to prime, add it to the primeArray
 while incrementor<endVal:
     currentVal=prime(incrementor,silentMode)
     if currentVal != None:
         primeArray.append(currentVal)
     incrementor+=1
+
+#print the results found
 print(primeArray)
+#Possibly output to a csv file, graph, etc...
