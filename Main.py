@@ -11,8 +11,6 @@
     Future implementations:
     -> Implement multithreading
     -> Output to a file
-    -> Option for a graph to be displayed
-    -> Execution time is displayed
 '''
 
 ##Import needed modules
