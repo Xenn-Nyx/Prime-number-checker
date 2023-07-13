@@ -18,6 +18,7 @@
 ##Import needed modules
 from prime_check import prime_check as prime
 from graphing import graphing as graph
+import time
 
 try:
     ##Data validation
@@ -43,6 +44,8 @@ try:
             print("Unexpected input!")
 
     ##Do the thing, you know, the thing
+    #get the start time
+    startTime=time.time()
     #Print a message displaying that the program is now working
     print(f"Checking for primes between {startVal} and {endVal}. Please be patient...\nPress ctrl + c to terminate if desired...")
 
@@ -59,7 +62,7 @@ try:
         incrementor+=1
 
     #print the results found
-    print(f"{primeArray}\n{len(primeArray)} values!\nChecked {endVal-startVal} values...\n{len(primeArray)/(endVal-startVal)*100}% are prime numbers.")
+    print(f"{primeArray}\n{len(primeArray)} values!\nChecked {endVal-startVal} values...\n{len(primeArray)/(endVal-startVal)*100}% are prime numbers.\nTime taken: {time.time()-startTime}s")
     #show results to a graph
     graph(primeArray)
     #Possibly output to a csv file, graph, etc...
