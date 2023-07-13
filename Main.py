@@ -17,6 +17,7 @@
 
 ##Import needed modules
 from prime_check import prime_check as prime
+from graphing import graphing as graph
 
 ##Data validation
 while True:
@@ -58,4 +59,6 @@ while incrementor<endVal:
 
 #print the results found
 print(primeArray)
+#show results to a graph
+graph(primeArray)
 #Possibly output to a csv file, graph, etc...
