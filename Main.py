@@ -59,7 +59,7 @@ try:
         incrementor+=1
 
     #print the results found
-    print(primeArray)
+    print(f"{primeArray}\n{len(primeArray)} values!\nChecked {endVal-startVal} values...\n{len(primeArray)/(endVal-startVal)*100}% are prime numbers.")
     #show results to a graph
     graph(primeArray)
     #Possibly output to a csv file, graph, etc...
