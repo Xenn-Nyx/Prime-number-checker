@@ -14,18 +14,17 @@ import math
 import time
 
 ##actual function
-def prime_check(num: int, silentMode: bool):
+def prime_check(num: int, silentMode: bool, primeList:list):
     '''
         prime_check.py
         Created by Xenn_Nyx on 25/6/23
         Checks if input is a prime number
         
-        Inputs: num (integer), silentMode (boolean)
+        Inputs: num (integer), silentMode (boolean), primeList (list)
         Outputs: console statements, value (if prime), none otherwise
 
         Incorporates some speed improvements:
-            Evens are checked first, and only by dividing by 2 (filters even numbers w/ less instructions)
-            Odd divisors are then checked (incrementing to the next odd number)
+            Only prime numbers are used to check if the number is prime
     '''
 
     #Validate the data formats
@@ -37,26 +36,23 @@ def prime_check(num: int, silentMode: bool):
         print("Number not an int...")
     #Calc the max value need to check
     maxCheck=math.ceil(num/2)
-    
-    #Check if any checks will incorrectly return a prime as non-prime (1,2)
+    #check for 1 (causes issues, is not prime by definition)
     if num==1:
-        if silentMode==False:
-            print("1 is prime")
-        return num
+        return None
+    
+    #Check if any checks will incorrectly return a prime as non-prime (2)
     if num==2:
         if silentMode==False:
             print("2 is prime")
         return num
     
-    #Check for even (all are / by 2)
-    if num%2==0:
-            if silentMode==False:
-                print(f"{num} is not a prime")
-            return None
-    
-    #Check if divisible by an odd number
-    for check in range(3,maxCheck+1,2):
-        if num%check==0:
+    ##New algo
+    #as all primes are not divisible by any previous prime number, and all composite numbers are
+    #divisible by primes,  the process time is reduced a lot
+    for incrementor in range(0,len(primeList)-1):
+        #check if the current number is evenly divisible by a prime number
+        if num%primeList[incrementor]==0:
+            #print the staus if needed
             if silentMode==False:
                 print(f"{num} is not a prime")
             return None

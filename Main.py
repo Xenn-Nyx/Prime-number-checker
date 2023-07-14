@@ -54,7 +54,7 @@ try:
     #Loop through each value until the end value is reached
     #if the number is found to prime, add it to the primeArray
     while incrementor<endVal:
-        currentVal=prime(incrementor,silentMode)
+        currentVal=prime(incrementor,silentMode,primeArray)
         if currentVal != None:
             primeArray.append(currentVal)
         incrementor+=1
